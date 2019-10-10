@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="kr">
+   <head>
+   <meta charset="UTF-8">
+   <title>주식</title>
+
+<style rel="stylesheet">
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+<!--body {-->
+  <!--background: #e5e5e7;-->
+<!--}-->
+
+nav {
+  position: absolute;
+  left: 0px;
+  top: -50px;
+  font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 50px auto;
+  width: 200px;
+  -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+     -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+          box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+}
+
+.menu-item {
+  background: #fff;
+  width: 200px;
+}
+.menu-item2 {
+  background: #fff;
+  width: 200px;
+}
+
+/*Menu Header Styles*/
+.menu-item h4 {
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  border-top: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 7px 12px;
+
+  /*Gradient*/
+  background: #a90329; /* Old browsers */
+  background: -moz-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a90329), color-stop(44%,#8f0222), color-stop(100%,#6d0019)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%); /* IE10+ */
+  background: linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 ); /* IE6-9 */
+}
+.menu-item2 h4 {
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  border-top: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 7px 12px;
+
+  /*Gradient*/
+  background: #a90329; /* Old browsers */
+  background: -moz-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a90329), color-stop(44%,#8f0222), color-stop(100%,#6d0019)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%); /* IE10+ */
+  background: linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 ); /* IE6-9 */
+}
+.menu-item h4:hover {
+  background: #cc002c; /* Old browsers */
+  background: -moz-linear-gradient(top,  #cc002c 0%, #6d0019 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cc002c), color-stop(100%,#6d0019)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #cc002c 0%,#6d0019 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #cc002c 0%,#6d0019 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #cc002c 0%,#6d0019 100%); /* IE10+ */
+  background: linear-gradient(top,  #cc002c 0%,#6d0019 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc002c', endColorstr='#6d0019',GradientType=0 ); /* IE6-9 */
+
+}
+.menu-item2 h4:hover {
+  background: #cc002c; /* Old browsers */
+  background: -moz-linear-gradient(top,  #cc002c 0%, #6d0019 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cc002c), color-stop(100%,#6d0019)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #cc002c 0%,#6d0019 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #cc002c 0%,#6d0019 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #cc002c 0%,#6d0019 100%); /* IE10+ */
+  background: linear-gradient(top,  #cc002c 0%,#6d0019 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc002c', endColorstr='#6d0019',GradientType=0 ); /* IE6-9 */
+
+}
+.menu-item h4 a {
+  color: white;
+  display: block;
+  text-decoration: none;
+  width: 400px;
+}
+.menu-item2 h4 a {
+  color: white;
+  display: block;
+  text-decoration: none;
+  width: 400px;
+}
+/*ul Styles*/
+.menu-item ul {
+  background: #fff;
+  font-size: 13px;
+  line-height: 30px;
+  height: 0px;
+  list-style-type: none;
+  overflow: hidden;
+  padding: 0px;
+
+  /*Animation*/
+  -webkit-transition: height 1s ease;
+     -moz-transition: height 1s ease;
+       -o-transition: height 1s ease;
+      -ms-transition: height 1s ease;
+          transition: height 1s ease;
+}
+.menu-item2 ul {
+  background: #fff;
+  font-size: 13px;
+  line-height: 30px;
+  height: 0px;
+  list-style-type: none;
+  overflow: hidden;
+  padding: 0px;
+
+  /*Animation*/
+  -webkit-transition: height 1s ease;
+     -moz-transition: height 1s ease;
+       -o-transition: height 1s ease;
+      -ms-transition: height 1s ease;
+          transition: height 1s ease;
+}
+
+
+.menu-item:hover ul {
+  height: 93px;
+
+}
+.menu-item2:hover ul {
+  height: 150px;
+
+}
+
+
+.menu-item ul a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #aaa;
+  display: block;
+  width: 300px;
+}
+.menu-item2 ul a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #aaa;
+  display: block;
+  width: 300px;
+}
+/*li Styles*/
+.menu-item li {
+  border-bottom: 1px solid #eee;
+}
+
+.menu-item li:hover {
+  background: #eee;
+}
+
+.menu-item2 li {
+  border-bottom: 1px solid #eee;
+}
+
+.menu-item2 li:hover {
+  background: #eee;
+}
+
+/*First Item Styles*/
+.alpha p {
+   padding: 8px 12px;
+   color: #aaa;
+}
+
+.alpha p a {
+   color: #000000;
+   font-style: italic;
+}
+
+.alpha p a:hover {
+   color:  #000000;
+}
+
+</style>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+      <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+
+      <nav>
+
+          <div class="menu-item">
+            <h4>캔들차트</h4>
+            <ul>
+              <li id="samsung"><a href="#">삼성전자</a></li>
+              <li id="naver"><a href="#">네이버</a></li>
+              <li id="sk"><a href="#">SK하이닉스</a></li>
+            </ul>
+          </div>
+
+          <div class="menu-item">
+            <h4><a href="#">예측하기</a></h4>
+            <ul>
+              <li id="samsung2"><a href="#">삼성전자</a></li>
+              <li id="naver2"><a href="#">네이버</a></li>
+              <li id="sk2"><a href="#">SK하이닉스</a></li>
+            </ul>
+          </div>
+
+          <div class="menu-item2">
+            <h4><a href="#">만든이</a></h4>
+            <ul>
+              <li><a href="#">이신일</a></li>
+              <li><a href="#">심현도</a></li>
+              <li><a href="#">신도연</a></li>
+            <li><a href="#">김융기</a></li>
+              <li><a href="#">최신우</a></li>
+            </ul>
+          </div>
+      </nav>
+      <script>
+   var na,sam,s,timer,timer2,timer3
+   var d = new Date();
+   var a = d.getHours() + ":" + d.getMinutes();
+    $('#sk').click( function() {
+    var search = document.getElementById("sk").value;
+    console.log(search)
+
+    <!--console.log(keyword)-->
+                $.ajax({
+                    url:'output',
+                    dataType:'json',
+
+
+                    success:function(data,data2){
+
+                        console.log("in")
+                        console.log(data)
+                        console.log(data2)
+                        console.log(data.length)
+
+                        getStockDataPoint(data);
+function getStockDataPoint(data) {
+var dataPoints = [];
+var chart = new  CanvasJS.Chart("chartContainer", {
+
+   animationEnabled: true,
+   theme: "light2", // "light1", "light2", "dark1", "dark2"
+   exportEnabled: true,
+   title: {
+      text: "sk하이닉스"
+   },
+   subtitles: [{
+      text: "1년"
+   }],
+   axisX: {
+       interval: 1,
+      <!--intervalType: "month",-->
+
+      valueFormatString: "MMM"
+   },
+   axisY: {
+      includeZero: false,
+      prefix: "$",
+      title: "Price"
+   },
+   toolTip: {
+      content: "Date: {x}<br /><strong>Price:</strong><br />Open: {y[0]}, Close: {y[3]}<br />High: {y[1]}, Low: {y[2]}"
+   },
+   data: [{
+      type: "candlestick",
+      risingColor: "#F79B8E",
+      yValueFormatString: "$##0.00",
+      dataPoints: dataPoints
+   }]
+});
+
+<!--$.get("https://canvasjs.com/data/gallery/javascript/netflix-stock-price.csv", getDataPointsFromCSV);-->
+
+    var csvLines = points = [];
+   csvLines = data;
+   for (var i = 0; i < csvLines.length; i++) {
+      if (csvLines[i].length > 0) {
+         points = csvLines[i].split(",");
+            console.log(points[1].substring(0,4))
+         console.log(points[1].substring(4,6)-1)
+         console.log(points[1].substring(6,8))
+         console.log(points[2])
+         console.log(points[3])
+         console.log(points[4])
+         console.log(points[5])
+
+
+         dataPoints.push({
+            x: new Date(
+               points[1].substring(0,4),
+               (points[1].substring(4,6)-1),
+               points[1].substring(6,8),
+            ),
+
+            y: [
+               parseFloat(points[2]),
+               parseFloat(points[3]),
+               parseFloat(points[4]),
+               parseFloat(points[5]),
+               ]
+         });
+      }
+   }
+
+   chart.render();
+
+}
+
+
+
+                    }
+                });
+            })
+</script>
+         <script>
+    $('#naver').click( function() {
+    var search = document.getElementById("sk").value;
+    console.log(search)
+
+    <!--console.log(keyword)-->
+                $.ajax({
+                    url:'output',
+                    dataType:'json',
+
+
+                    success:function(data){
+
+                        console.log("in")
+                        console.log(data)
+                        console.log(data.length)
+
+                        getStockDataPoint(data);
+function getStockDataPoint(data) {
+var dataPoints = [];
+var chart = new  CanvasJS.Chart("chartContainer", {
+
+   animationEnabled: true,
+   theme: "light2", // "light1", "light2", "dark1", "dark2"
+   exportEnabled: true,
+   title: {
+      text: "네이버"
+   },
+   subtitles: [{
+      text: "1년"
+   }],
+   axisX: {
+       interval: 1,
+      <!--intervalType: "month",-->
+
+      valueFormatString: "MMM"
+   },
+   axisY: {
+      includeZero: false,
+      prefix: "$",
+      title: "Price"
+   },
+   toolTip: {
+      content: "Date: {x}<br /><strong>Price:</strong><br />Open: {y[0]}, Close: {y[3]}<br />High: {y[1]}, Low: {y[2]}"
+   },
+   data: [{
+      type: "candlestick",
+      risingColor: "#F79B8E",
+      yValueFormatString: "$##0.00",
+      dataPoints: dataPoints
+   }]
+});
+
+<!--$.get("https://canvasjs.com/data/gallery/javascript/netflix-stock-price.csv", getDataPointsFromCSV);-->
+
+    var csvLines = points = [];
+   csvLines = data;
+   for (var i = 0; i < csvLines.length; i++) {
+      if (csvLines[i].length > 0) {
+         points = csvLines[i].split(",");
+            console.log(points[1].substring(0,4))
+         console.log(points[1].substring(4,6)-1)
+         console.log(points[1].substring(6,8))
+         console.log(points[2])
+         console.log(points[3])
+         console.log(points[4])
+         console.log(points[5])
+
+
+         dataPoints.push({
+            x: new Date(
+               points[1].substring(0,4),
+               (points[1].substring(4,6)-1),
+               points[1].substring(6,8),
+            ),
+
+            y: [
+               parseFloat(points[2]),
+               parseFloat(points[3]),
+               parseFloat(points[4]),
+               parseFloat(points[5]),
+               ]
+         });
+      }
+   }
+
+   chart.render();
+
+}
+
+
+
+                    }
+                });
+            })
+</script>
+         <script>
+    $('#samsung').click( function() {
+    var search = document.getElementById("sk").value;
+    console.log(search)
+
+    <!--console.log(keyword)-->
+                $.ajax({
+                    url:'output',
+                    dataType:'json',
+
+
+                    success:function(data){
+
+                        console.log("in")
+                        console.log(data)
+                        console.log(data.length)
+
+                        getStockDataPoint(data);
+function getStockDataPoint(data) {
+var dataPoints = [];
+var chart = new  CanvasJS.Chart("chartContainer", {
+
+   animationEnabled: true,
+   theme: "light2", // "light1", "light2", "dark1", "dark2"
+   exportEnabled: true,
+   title: {
+      text: "삼성전자"
+   },
+   subtitles: [{
+      text: "1년"
+   }],
+   axisX: {
+       interval: 1,
+      <!--intervalType: "month",-->
+
+      valueFormatString: "MMM"
+   },
+   axisY: {
+      includeZero: false,
+      prefix: "$",
+      title: "Price"
+   },
+   toolTip: {
+      content: "Date: {x}<br /><strong>Price:</strong><br />Open: {y[0]}, Close: {y[3]}<br />High: {y[1]}, Low: {y[2]}"
+   },
+   data: [{
+      type: "candlestick",
+      risingColor: "#F79B8E",
+      yValueFormatString: "$##0.00",
+      dataPoints: dataPoints
+   }]
+});
+
+<!--$.get("https://canvasjs.com/data/gallery/javascript/netflix-stock-price.csv", getDataPointsFromCSV);-->
+
+    var csvLines = points = [];
+   csvLines = data;
+   for (var i = 0; i < csvLines.length; i++) {
+      if (csvLines[i].length > 0) {
+         points = csvLines[i].split(",");
+            console.log(points[1].substring(0,4))
+         console.log(points[1].substring(4,6)-1)
+         console.log(points[1].substring(6,8))
+         console.log(points[2])
+         console.log(points[3])
+         console.log(points[4])
+         console.log(points[5])
+
+
+         dataPoints.push({
+            x: new Date(
+               points[1].substring(0,4),
+               (points[1].substring(4,6)-1),
+               points[1].substring(6,8),
+            ),
+
+            y: [
+               parseFloat(points[2]),
+               parseFloat(points[3]),
+               parseFloat(points[4]),
+               parseFloat(points[5]),
+               ]
+         });
+      }
+   }
+
+   chart.render();
+
+}
+
+
+
+                    }
+                });
+            })
+</script>
+         <script>
+    $('#samsung2').click( function() {
+       var sam = true;
+       if(na == true)
+          na = false;
+          clearInterval(timer2);
+       if(s == true)
+          s = false;
+          clearInterval(timer3);
+
+       timer=setInterval(function(){
+      var d = new Date();
+      <!--var a = d.getHours() + ":" + d.getMinutes();-->
+   <!--console.log(keyword)-->
+                $.ajax({
+                    url:'predict',
+                    dataType:'json',
+
+
+                    success:function(data){
+
+                        console.log("in")
+                        console.log(data)
+                        console.log(data.length)
+                        console.log(data[0].length)
+
+                        getPredictDataPoint(data);
+function getPredictDataPoint(data) {
+var dataPoints = [];
+var dataPoints2 = [];
+
+var chart = new CanvasJS.Chart("chartContainer2", {
+   title: {
+      text: "삼성전자 예측"
+   },
+   axisX: {
+      valueFormatString: "HH : mm"
+   },
+   axisY2: {
+      title: "가격",
+
+      suffix: "원"
+   },
+   toolTip: {
+      shared: true
+   },
+   legend: {
+      cursor: "pointer",
+      verticalAlign: "top",
+      horizontalAlign: "center",
+      dockInsidePlotArea: true,
+      itemclick: toogleDataSeries
+   },
+   data: [{
+      type:"line",
+      axisYType: "secondary",
+      name: "현재값",
+      showInLegend: true,
+      markerSize: 0,
+      yValueFormatString: "$#,###k",
+      dataPoints: dataPoints
+   },
+   {
+      type: "line",
+      axisYType: "secondary",
+      name: "예측값",
+      showInLegend: true,
+      markerSize: 0,
+      yValueFormatString: "$#,###k",
+      dataPoints: dataPoints2
+   }
+]
+});
+   var csvLines = points = [];
+   csvLines = data[0];
+   console.log(csvLines)
+   points = csvLines[0].split(",");
+   console.log(csvLines.length);
+   var hour = d.getHours();
+   var min = d.getMinutes();
+   console.log(hour);
+   console.log(min);
+   for (var i = 0; i < csvLines.length; i++) {
+         points = csvLines[i].split(",")
+
+         dataPoints.push({
+            <!--x :new Date('','','',hour,min),-->
+            y: parseFloat(points[0])
+
+
+         });
+
+   }
+   var csvLines = points = [];
+   csvLines = data[1];
+   console.log(csvLines)
+   points = csvLines[1].split(",");
+
+   for (var i = 0; i < csvLines.length; i++) {
+         points = csvLines[i].split(",")
+
+         dataPoints2.push({
+            <!--x:new Date('','','',hour,min),-->
+
+            y: parseFloat(points[0])
+
+
+         });
+
+   }
+chart.render();
+
+function toogleDataSeries(e){
+   if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+      e.dataSeries.visible = false;
+   } else{
+      e.dataSeries.visible = true;
+   }
+   chart.render();
+}
+
+}
+                    }
+                });
+                },1000);
+            })
+</script>
+         <script>
+    $('#naver2').click( function() {
+       var na = true;
+       if(sam == true)
+          sam = false;
+          clearInterval(timer);
+       if(s == true)
+          s = false;
+          clearInterval(timer3);
+       timer2=setInterval(function(){
+
+   <!--console.log(keyword)-->
+                $.ajax({
+                    url:'predict2',
+                    dataType:'json',
+
+
+                    success:function(data){
+
+                        console.log("in")
+                        console.log(data)
+                        console.log(data.length)
+                        console.log(data[0].length)
+
+                        getPredictDataPoint(data);
+function getPredictDataPoint(data) {
+var dataPoints = [];
+var dataPoints2 = [];
+var chart = new CanvasJS.Chart("chartContainer2", {
+   title: {
+      text: "네이버 예측"
+   },
+   axisX: {
+      valueFormatString: "MMM YYYY"
+   },
+   axisY2: {
+      title: "가격",
+
+      suffix: "원"
+   },
+   toolTip: {
+      shared: true
+   },
+   legend: {
+      cursor: "pointer",
+      verticalAlign: "top",
+      horizontalAlign: "center",
+      dockInsidePlotArea: true,
+      itemclick: toogleDataSeries
+   },
+   data: [{
+      type:"line",
+      axisYType: "secondary",
+      name: "현재값",
+      showInLegend: true,
+      markerSize: 0,
+      yValueFormatString: "$#,###k",
+      dataPoints: dataPoints
+   },
+   {
+      type: "line",
+      axisYType: "secondary",
+      name: "예측값",
+      showInLegend: true,
+      markerSize: 0,
+      yValueFormatString: "$#,###k",
+      dataPoints: dataPoints2
+   }
+]
+});
+   var csvLines = points = [];
+   csvLines = data[0];
+   console.log(csvLines)
+   points = csvLines[0].split(",");
+   console.log(csvLines.length)
+   for (var i = 0; i < csvLines.length; i++) {
+         points = csvLines[i].split(",")
+
+         dataPoints.push({
+            x: new Date(
+               2019,08,i+2
+            ),
+
+            y: parseFloat(points[0])
+
+
+         });
+
+   }
+   var csvLines = points = [];
+   csvLines = data[1];
+   console.log(csvLines)
+   points = csvLines[1].split(",");
+   var d = new Date();
+   for (var i = 0; i < csvLines.length; i++) {
+         points = csvLines[i].split(",")
+
+         dataPoints2.push({
+            x: new Date(
+               2019,08,i+2
+            ),
+
+            y: parseFloat(points[0])
+
+
+         });
+
+   }
+chart.render();
+
+function toogleDataSeries(e){
+   if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+      e.dataSeries.visible = false;
+   } else{
+      e.dataSeries.visible = true;
+   }
+   chart.render();
+}
+
+}
+                    }
+                });
+                },1000);
+            })
+</script>
+               <script>
+    $('#sk2').click( function() {
+       var s = true;
+       if(na == true)
+          na = false;
+          clearInterval(timer2);
+       if(sam == true)
+          sam = false;
+          clearInterval(timer);
+       timer3=setInterval(function(){
+
+   <!--console.log(keyword)-->
+                $.ajax({
+                    url:'predict3',
+                    dataType:'json',
+
+
+                    success:function(data){
+
+                        console.log("in")
+                        console.log(data)
+                        console.log(data.length)
+                        console.log(data[0].length)
+
+                        getPredictDataPoint(data);
+function getPredictDataPoint(data) {
+var dataPoints = [];
+var dataPoints2 = [];
+var chart = new CanvasJS.Chart("chartContainer2", {
+   title: {
+      text: "SK하이닉스 예측"
+   },
+   axisX: {
+      // valueFormatString: "MMM YYYY"
+   },
+   axisY2: {
+      title: "가격",
+      minimum:70000,
+      interval:1000,
+      maximum:85000,
+      suffix: "원"
+   },
+   toolTip: {
+      shared: true
+   },
+   legend: {
+      cursor: "pointer",
+      verticalAlign: "top",
+      horizontalAlign: "center",
+      dockInsidePlotArea: true,
+      itemclick: toogleDataSeries
+   },
+   data: [{
+      type:"line",
+      axisYType: "secondary",
+      name: "현재값",
+      showInLegend: true,
+      markerSize: 0,
+      yValueFormatString: "$####",
+      dataPoints: dataPoints
+   },
+   {
+      type: "line",
+      axisYType: "secondary",
+      name: "예측값",
+      showInLegend: true,
+      markerSize: 0,
+      yValueFormatString: "$####",
+      dataPoints: dataPoints2
+   }
+]
+});
+   var csvLines = points = [];
+   csvLines = data[0];
+   console.log(csvLines)
+   points = csvLines[0].split(",");
+   console.log(csvLines.length)
+   for (var i = 0; i < csvLines.length; i++) {
+         points = csvLines[i].split(",")
+
+         dataPoints.push({
+            // x: new Date(
+            //    2019,08,i+2
+            // ),
+
+            y: parseFloat(points[0])
+
+
+         });
+
+   }
+   var csvLines = points = [];
+   csvLines = data[1];
+   console.log(csvLines)
+   points = csvLines[1].split(",");
+   var d = new Date();
+   for (var i = 0; i < csvLines.length; i++) {
+         points = csvLines[i].split(",")
+
+         dataPoints2.push({
+            // x: new Date(
+            //    2019,08,i+2
+            // ),
+
+            y: parseFloat(points[0])
+
+
+         });
+
+   }
+chart.render();
+
+function toogleDataSeries(e){
+   if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+      e.dataSeries.visible = false;
+   } else{
+      e.dataSeries.visible = true;
+   }
+   chart.render();
+}
+
+}
+                    }
+                });
+                },1000);
+            })
+</script>
+<center><div id="chartContainer" style="height: 300px; width: 50%;"></div></center>
+<center><div id="chartContainer2" style="height: 600px; width:50%;"></div></center>
+</body>
+</html>
